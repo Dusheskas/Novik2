@@ -1,0 +1,40 @@
+$gray: #828282;
+$black: #070707;
+$soft-bg: #F6F6F6;
+$accent: #C7947C;
+$white: #fff;
+
+
+// Mixins
+@mixin animOnScroll ($x, $y, $time, $delay) {
+   transform: translate($x, $y);
+   opacity: 0;
+   transition: transform $time cubic-bezier(0.665, -0.215, 0.560, 1.190) $delay, opacity $time cubic-bezier(0.665, -0.215, 0.560, 1.190) $delay;
+}
+
+@mixin animReset {
+   opacity: 1;
+   transform: translate(0, 0);
+}
+
+.container {
+   max-width: 1008px;
+   margin: 0 auto;
+   padding: 0 30px;
+}
+
+body {
+   font-size: 18px;
+   font-family: 'Gilroy Medium', sans-serif;
+   line-height: 1.25;
+   color: $black;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: 'Gilroy Bold', sans-serif;
+}

@@ -1,0 +1,54 @@
+.portfolio {
+   padding: 112px 0 96px;
+   background-color: $soft-bg;
+   text-align: center;
+
+   &__title {
+      margin-bottom: 47px;
+      font-size: 34px;
+
+      @include animOnScroll (0, 20%, .4s, .0s);
+
+      &.active {
+         @include animReset;
+      }
+   }
+
+   &__item {
+      text-align: center;
+
+      img {
+         width: 100%;
+         margin-bottom: 45px;
+         object-fit: cover;
+         object-position: center;
+      }
+
+      a {
+         text-decoration: underline;
+      }
+
+      @include animOnScroll (0, 20%, .4s, .0s);
+
+      &.active {
+         @include animReset;
+      }
+   }
+
+   &__item+&__item {
+      margin-top: 100px;
+   }
+}
+
+@media (max-width:768px) {
+   .portfolio {
+      padding: 55px 0 71px;
+   }
+}
+
+@media (max-width:425px) {
+   .portfolio__item+.portfolio__item {
+      margin-top: 60px;
+   }
+
+}

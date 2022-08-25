@@ -1,0 +1,283 @@
+.header {
+   padding: 33px 0 104px;
+   overflow-x: hidden;
+
+   &__content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      padding: 40px 0 50px;
+
+      color: $black;
+   }
+
+   &__title {
+      font-size: 48px;
+
+      // Anim
+      @include animOnScroll(0, 15%, .3s, 0s);
+   }
+
+   &__title.active {
+      @include animReset;
+   }
+
+   &__subtitle {
+      font-family: 'Gilroy Medium', sans-serif;
+      margin-left: -40px;
+
+      @include animOnScroll(0, 15%, .3s, .3s);
+   }
+
+   &__subtitle.active {
+      @include animReset;
+   }
+
+   &__lang {
+      writing-mode: tb-rl;
+      transform: rotate(90deg);
+      font-family: 'Gilroy Bold', sans-serif;
+      color: $gray;
+
+
+      .active {
+         color: $black;
+
+      }
+
+      a {
+         transition: color .2s ease;
+      }
+
+      a:hover {
+         color: $black;
+      }
+
+      position: relative;
+
+      a+a {
+         margin-top: 5px;
+      }
+
+      span {
+         font-family: 'Gilroy Bold', sans-serif;
+      }
+
+      &.active {
+         @include animReset;
+      }
+
+      @include animOnScroll(0, 20%, .5s, .4s);
+   }
+
+   &__img {
+      height: 50vh;
+      width: 100%;
+      overflow: hidden;
+
+      background-image: url("./../../img/header-img.jpg");
+      background-size: cover;
+      background-position: 0 42%;
+      background-repeat: no-repeat;
+
+      @include animOnScroll (0, 20%, .4s, .4s);
+
+      &.active {
+         @include animReset;
+      }
+   }
+
+
+}
+
+.nav {
+   position: relative;
+   padding-bottom: 31px;
+   font-family: 'Gilroy Bold', sans-serif;
+
+   &__list {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      color: $gray;
+   }
+
+   &__list-item {
+      transition: color .2 ease;
+   }
+
+   &__list-item:hover {
+      color: $black;
+   }
+
+   &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      background-color: $gray;
+      height: 1px;
+      width: 100%;
+   }
+
+   .burger__close {
+      display: none;
+   }
+
+   &__lang {
+      display: none;
+   }
+}
+
+.eng {}
+
+.ru {}
+
+// =-=-=- Mobile Nav =-=-=-
+.burger__wrapper {
+   display: flex;
+   justify-content: flex-end;
+}
+
+.burger {
+   position: relative;
+
+   // Ширина линий
+   width: 33px;
+   height: 20px;
+
+   display: none;
+   cursor: pointer;
+
+   // Верхняя линия
+   &::before {
+      top: 0;
+   }
+
+   &__line {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+
+      // Ширина центральной линии
+      width: 100%;
+      // Высота центральной линии
+      height: 4px;
+      // Цвет центральной линии
+      background-color: $black;
+   }
+
+   &::before,
+   &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+
+      // Ширина дополнительных линий
+      width: 100%;
+      // Высота дополнительных линий
+      height: 4px;
+      // Цвет дополнительных линий
+      background-color: $black;
+   }
+
+   &::after {
+      bottom: 0;
+   }
+}
+
+@media (max-width:767px) {
+
+   .header {
+      padding-bottom: 48px;
+
+      &__content {
+         padding-top: 0;
+         flex-wrap: wrap;
+         column-gap: 50%;
+         row-gap: 25px;
+      }
+
+      &__subtitle {
+         margin-left: 0;
+      }
+
+      &__lang {
+         display: none;
+      }
+   }
+
+   .nav {
+      // Показываем
+      position: fixed;
+
+      // Расположение менюшки
+      left: 0;
+      top: 0;
+      z-index: 10;
+
+      // Отступ внитри меню до текста
+      padding: 66px 26px 0 26px;
+
+      // Чтоб оно было на весь экран
+      width: 100%;
+      height: 100%;
+
+      // Фон под меню
+      background-color: rgba($white, 1);
+
+      // Скрываем меню изначально
+      transform: translateX(-100%);
+      transition: transform .2s ease;
+
+      // Показываем меню когда есть класс viible
+      &--visible {
+         transform: none;
+
+         // Показываю крестик
+         .burger__close {
+            display: block;
+            position: absolute;
+            right: 26px;
+            top: 66px;
+         }
+      }
+
+      &__list {
+         // Пункты меню выстраиваем в колонку
+         flex-direction: column;
+         // Выравниваем их слева
+         align-items: flex-start;
+
+         // Отступ между эелементами меню вертикальный
+         row-gap: 65px;
+
+         // Элемент меню
+         &-item {
+            font-size: 34px;
+         }
+      }
+
+      // Убираю полосу под навигацией
+      &::after {
+         display: none;
+      }
+
+      &__lang {
+         display: block;
+         position: absolute;
+         right: 26px;
+         bottom: 66px;
+         font-size: 34px;
+
+         @include animReset;
+      }
+   }
+
+   // Показываю кнопку
+   .burger {
+      display: block;
+   }
+}

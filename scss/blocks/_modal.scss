@@ -1,0 +1,95 @@
+.modal-container {
+   width: 100vw;
+   height: 100vh;
+
+   position: fixed;
+   top: 0;
+   left: 0;
+   z-index: 10;
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+
+   /* Заливка фона под модалкой */
+   background-color: rgba(0, 0, 0, 0.3);
+
+   opacity: 0;
+   pointer-events: none;
+
+   /* Анимация */
+   transition: opacity .2s ease;
+}
+
+.modal-container.show {
+   opacity: 1;
+   pointer-events: auto;
+}
+
+.modal {
+   padding: 50px;
+
+   background-color: $white;
+   /* Размеры окна */
+   width: 384px;
+   min-height: 360px;
+   max-height: 400px;
+   /* Скругление углов */
+   border-radius: 4px;
+   /* Тень */
+   box-shadow: 0px 0px 38px rgba(0, 0, 0, 0.15);
+
+   /* Ставим текст по центру */
+   /* text-align: center; */
+
+   position: relative;
+
+   &-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+   }
+
+   &__title {
+      margin-bottom: 40px;
+      text-transform: unset;
+
+      font-weight: 400;
+      font-size: 28px;
+
+      position: relative;
+   }
+
+   &__input {
+      width: 290px;
+      height: 54px;
+      font-size: 14px;
+      color: $gray;
+
+      padding: 16px 52px;
+
+      background-color: #FCFCFC;
+
+      &+& {
+         margin-top: 24px;
+      }
+
+      background-repeat: no-repeat;
+      background-position: 16px 50%;
+   }
+
+   &__input-email {
+      position: relative;
+
+      background-image: url('./../img/icons/mail.svg');
+   }
+
+   &__input-text {
+      background-image: url('./../img/icons/message.svg');
+   }
+
+   &__btn {
+      margin-top: 24px;
+   }
+
+}

@@ -1,0 +1,41 @@
+.about {
+   padding: 120px 0 107px;
+   text-align: center;
+   background-color: $soft-bg;
+
+   &__title {
+      font-size: 34px;
+      margin-bottom: 24px;
+
+      @include animOnScroll (0, 20%, .2s, .0s);
+
+      &.active {
+         @include animReset;
+      }
+   }
+
+   &__text {
+      max-width: 485px;
+      margin: 0 auto;
+
+      p {
+         @include animOnScroll (0, 20%, .2s, .3s);
+
+         &.active {
+            @include animReset;
+         }
+      }
+   }
+
+   &__text p+p {
+      margin-top: 50px;
+   }
+
+
+}
+
+@media (max-width:768px) {
+   .about {
+      padding: 50px 0 60px;
+   }
+}

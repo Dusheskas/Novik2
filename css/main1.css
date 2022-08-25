@@ -249,7 +249,7 @@ h6 {
   height: 50vh;
   width: 100%;
   overflow: hidden;
-  background-image: url("./../../img/header-img.jpg");
+  background-image: url("./../img/header-img.jpg");
   background-size: cover;
   background-position: 0 42%;
   background-repeat: no-repeat;

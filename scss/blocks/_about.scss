@@ -3,6 +3,7 @@
    text-align: center;
    background-color: $soft-bg;
 
+
    &__title {
       font-size: 34px;
       margin-bottom: 24px;
@@ -30,9 +31,9 @@
    &__text p+p {
       margin-top: 50px;
    }
-
-
 }
+
+
 
 @media (max-width:768px) {
    .about {

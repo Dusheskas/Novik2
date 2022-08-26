@@ -9,7 +9,7 @@
 
       padding: 40px 0 50px;
 
-      color: $black;
+      // color: $black;
    }
 
    &__title {
@@ -39,6 +39,7 @@
       transform: rotate(90deg);
       font-family: 'Gilroy Bold', sans-serif;
       color: $gray;
+
 
 
       .active {
@@ -78,7 +79,7 @@
 
       background-image: url("./../img/header-img.jpg");
       background-size: cover;
-      background-position: 0 42%;
+      background-position: 1px 42%;
       background-repeat: no-repeat;
 
       @include animOnScroll (0, 20%, .4s, .4s);
